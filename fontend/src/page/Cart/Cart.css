@@ -122,6 +122,30 @@
   border-radius: 4px;
 }
 
+.empty_cart{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty_cart p{
+  padding: 12px 30px;
+  background-color: tomato;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: -30px;
+}
+
+.disable{
+  display: none;
+}
+
+.empty_cart img{
+  width: 40%;
+}
+
 @media (max-width:750px) {
   .cart-bottom{
     flex-direction: column-reverse;

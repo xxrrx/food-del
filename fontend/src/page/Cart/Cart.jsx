@@ -2,6 +2,7 @@ import React, { use, useContext } from 'react'
 import './Cart.css'
 import { StoreContext } from '../../context/StoreContext'
 import { useNavigate } from 'react-router-dom';
+import { assets } from '../../assets/assets';
 const Cart = () => {
 
   const{cartItems,removeFromCart,food_list,removeAll,addToCart,getTotalCartAmount,url} = useContext(StoreContext);
@@ -20,6 +21,10 @@ const Cart = () => {
         </div>
         <br />
         <hr />
+        <div className={getTotalCartAmount()===0?"empty_cart":"disable"}>
+          <img src={assets.empty_cart} alt=""/>
+          <p onClick={()=> navigate('/')}>RETURN TO HOME</p>
+        </div>
         {
           food_list.map((item,index)=>{
             if(cartItems[item._id]>0){
@@ -44,7 +49,7 @@ const Cart = () => {
           })
         }
       </div>
-      <div className="cart-bottom">
+      <div className={getTotalCartAmount()===0?"disable":"cart-bottom"}>
         <div className="cart-total">
           <h2>Cart Totals</h2>
           <div>
