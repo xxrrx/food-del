@@ -1,3 +1,4 @@
+import { log } from "console";
 import foodModel from "../models/foodModel.js";
 import fs from 'fs'
 
@@ -44,4 +45,31 @@ const removeFood = async(req,res)=> {
     }
 }
 
-export {addFood,listFood,removeFood}
+const updateFood = async(req,res)=> {
+    try {
+        const food = await foodModel.findById(req.body.id);
+        if(!food){
+            return res.json({success:false,message:"Food not found"})
+        }
+
+        const updateData = {
+            name: req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            category: req.body.category,
+        }
+
+        if(req.file){
+            fs.unlink(`uploads/${food.image}`,()=>{})
+            updateData.image = req.file.filename;
+        }
+
+        await foodModel.findByIdAndUpdate(req.body.id, updateData);
+        res.json({success:true,message:"Food Updated"})
+    } catch (error) {
+        console.log(error)
+        res.json({success:false,message:"Error"})
+    }
+}
+
+export {addFood,listFood,removeFood,updateFood}

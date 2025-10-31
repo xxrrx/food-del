@@ -2,13 +2,28 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 4%;
+    padding: 18px 4%;
+    background: white;
+    box-shadow: 0 4px 20px var(--shadow-light);
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(90deg, var(--primary-red), var(--primary-orange), var(--secondary-yellow)) 1;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .navbar .logo{
-    width: max(10%, 80px);
+    width: 120px;
+    filter: drop-shadow(2px 2px 4px var(--shadow-light));
+    transition: transform 0.3s ease;
 }
+
 
 .navbar .profile{
     width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-orange);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--shadow-light);
 }

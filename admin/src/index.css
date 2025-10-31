@@ -1,25 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Admin Pizza Theme Color Variables */
+:root {
+  --primary-red: #E74C3C;
+  --primary-orange: #FF6B35;
+  --secondary-yellow: #F39C12;
+  --dark-brown: #8B4513;
+  --cream: #FFF8DC;
+  --dark-blue: #2C3E50;
+  --light-gray: #ECF0F1;
+  --success-green: #27AE60;
+  --text-dark: #2d2d2d;
+  --text-gray: #555555;
+  --shadow-light: rgba(0, 0, 0, 0.08);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+  --shadow-dark: rgba(0, 0, 0, 0.25);
+  --admin-bg: #f8f9fa;
+}
 
 *{
   margin: 0;
   box-sizing: border-box;
-  font-family: Outfit;
+  font-family: 'Poppins', 'Outfit', sans-serif;
 }
 
 body{
   min-height: 100vh;
-  background-color: #fcfcfc;
+  background: linear-gradient(135deg, var(--admin-bg) 0%, #ffffff 100%);
 }
 
 a{
   text-decoration: none;
   color: inherit;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-red);
 }
 
 hr{
   border: none;
-  height: 1px;
-  background-color: #a9a9a9;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-red), var(--primary-orange), transparent);
+  margin: 15px 0;
 }
 
 .app-content{
@@ -29,9 +53,36 @@ hr{
 .flex-col{
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
 .cursor{
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cursor:hover {
+  opacity: 0.8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

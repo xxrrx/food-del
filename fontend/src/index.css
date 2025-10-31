@@ -1,31 +1,102 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Pizza Theme Color Variables */
+:root {
+  --primary-red: #E74C3C;
+  --primary-orange: #FF6B35;
+  --secondary-yellow: #F39C12;
+  --dark-brown: #8B4513;
+  --cream: #FFF8DC;
+  --dark-blue: #2C3E50;
+  --light-gray: #ECF0F1;
+  --success-green: #27AE60;
+  --text-dark: #2d2d2d;
+  --text-gray: #555555;
+  --shadow-light: rgba(0, 0, 0, 0.08);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+  --shadow-dark: rgba(0, 0, 0, 0.25);
+}
+
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Outfit;
+  font-family: 'Poppins', 'Outfit', sans-serif;
   scroll-behavior: smooth;
 }
 
 body{
   min-height: 100vh;
+  background: linear-gradient(135deg, #ffffff 0%, #fff8f0 100%);
+  color: var(--text-dark);
 }
 
 a{
   text-decoration: none;
   color: inherit;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-red);
 }
 
 .app{
-  width: 80%;
+  width: 85%;
+  max-width: 1400px;
   margin: auto;
 }
 
+/* Animations */
 @keyframes fadeIn {
   0%{
     opacity: 0;
+    transform: translateY(20px);
   }
   100%{
     opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
