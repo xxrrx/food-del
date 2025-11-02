@@ -13,7 +13,7 @@
 }
 
 .navbar .logo{
-    width: 120px;
+    width: 160px;
     filter: drop-shadow(2px 2px 4px var(--shadow-light));
     transition: transform 0.3s ease;
 }

@@ -48,11 +48,13 @@ hr{
 
 .app-content{
   display: flex;
+  min-height: calc(100vh - 80px);
 }
 
 .flex-col{
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
 .cursor{

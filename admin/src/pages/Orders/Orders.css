@@ -68,17 +68,9 @@
     outline: none;
     border-radius: 12px;
     font-weight: 600;
-    color: var(--primary-red);
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: inherit;
-}
-
-.order-item select:hover {
-    background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
-    color: white;
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
 }
 
 .order-item select:focus {
