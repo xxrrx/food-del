@@ -26,7 +26,7 @@ const placeOrder = async(req,res)=>{
         const session = await vnpay.buildPaymentUrl({
             vnp_TxnRef: newOrder._id.toString(),
             vnp_OrderInfo: `Thanh toán đơn hàng ${newOrder._id}`,
-            vnp_Amount: Math.round(Number(newOrder.amount)),
+            vnp_Amount: Number(newOrder.amount),
             vnp_ReturnUrl: `${frontend_url}/verify?orderId=${newOrder._id}`,
             vnp_CreateDate: dateFormat(new Date(), 'yyyyMMddHHmmss'),
             vnp_IpAddr: req.ip,

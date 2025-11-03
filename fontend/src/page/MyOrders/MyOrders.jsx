@@ -3,6 +3,7 @@ import './MyOrders.css'
 import { StoreContext } from '../../context/StoreContext';
 import axios from 'axios';
 import { assets } from '../../assets/assets';
+import { formatVND } from '../../utils/formatCurrency';
 
 const MyOrders = () => {
 
@@ -41,7 +42,7 @@ const MyOrders = () => {
                       }
                     })}
                   </p>
-                  <p>Tổng tiền: {order.amount} VND</p>
+                  <p>Tổng tiền: {formatVND(order.amount)} VNĐ</p>
                   <p>Số lượng món: {order.items.length}</p>
                   <p><span>&#x25cf;</span><b> Trạng thái: {order.status}</b></p>
                   <button onClick={fetchOrders}>Theo dõi đơn hàng</button>

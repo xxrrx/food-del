@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { data } from 'react-router-dom';
 import { assets } from '../../assets/assets';
 import EditPopup from '../../components/EditPopup/EditPopup';
+import { formatVND } from '../../utils/formatCurrency';
 const List = ({url}) => {
   
   const[list,setList] = useState([]);
@@ -63,7 +64,7 @@ const List = ({url}) => {
                 <img src={`${url}/images/`+item.image} alt="" />
                 <p>{item.name}</p>
                 <p>{item.category}</p>
-                <p>${item.price}</p>
+                <p>{formatVND(item.price)} VNĐ</p>
                 <p onClick={()=>removeFood(item._id)} className='cursor'>x</p>
                 <p className='edit-btn' onClick={() => {setEdit(item)}}>Edit</p>
               </div>

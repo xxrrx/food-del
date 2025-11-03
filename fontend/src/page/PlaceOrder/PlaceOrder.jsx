@@ -3,6 +3,7 @@ import './PlaceOrder.css'
 import { StoreContext } from '../../context/StoreContext'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { formatVND } from '../../utils/formatCurrency'
 
 const PlaceOrder = () => {
   const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext)
@@ -36,7 +37,7 @@ const PlaceOrder = () => {
     let orderData = {
       address: data,
       items: orderItems,
-      amount: getTotalCartAmount() + 2,
+      amount: getTotalCartAmount() + 20000,
     }
     let response = await axios.post(url + "/api/order/place", orderData, { headers: { token } })
     if (response.data.success) {
@@ -80,17 +81,17 @@ const PlaceOrder = () => {
           <div>
             <div className="cart-total-details">
               <p>Tạm tính</p>
-              <p>{getTotalCartAmount()} VND</p>
+              <p>{formatVND(getTotalCartAmount())} VNĐ</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <p>Phí giao hàng</p>
-              <p>{getTotalCartAmount() === 0 ? 0 : 20000} VND</p>
+              <p>{formatVND(getTotalCartAmount() === 0 ? 0 : 20000)} VNĐ</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Tổng cộng</b>
-              <b>{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 20000} VND</b>
+              <b>{formatVND(getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 20000)} VNĐ</b>
             </div>
           </div>
           <button type='submit'>Tiến hành thanh toán</button>

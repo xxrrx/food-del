@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import './FoodItem.css'
 import { assets } from '../../assets/assets'
 import { StoreContext } from '../../context/StoreContext'
+import { formatVND } from '../../utils/formatCurrency'
 
 const FoodItem = ({id,name,price,description,image}) => {
 
@@ -26,7 +27,7 @@ const FoodItem = ({id,name,price,description,image}) => {
           <img src={assets.rating_starts} alt="" />
         </div>
         <p className="food-item-decription">{description}</p>
-        <p className="food-item-price">{price} VND</p>
+        <p className="food-item-price">{formatVND(price)} VNĐ</p>
       </div>
     </div>
   )

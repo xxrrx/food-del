@@ -66,12 +66,12 @@ const Add = ({url}) => {
             <p>Product category</p>
             <select onChange={onChangeHandler} name="category">
               <option value="Salad">Salad</option>
-
+                
             </select>
           </div>
           <div className="add-price flex-col">
             <p>Product price</p>
-            <input onChange={onChangeHandler} value={data.price} type="number" name='price' placeholder='$20' />
+            <input onChange={onChangeHandler} value={data.price} type="number" name='price' placeholder='20000' />
           </div>
         </div>
         <button type='submit' className='add-button'>ADD</button>

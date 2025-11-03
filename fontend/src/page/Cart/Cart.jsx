@@ -3,6 +3,7 @@ import './Cart.css'
 import { StoreContext } from '../../context/StoreContext'
 import { useNavigate } from 'react-router-dom';
 import { assets } from '../../assets/assets';
+import { formatVND } from '../../utils/formatCurrency';
 
 const Cart = () => {
 
@@ -34,13 +35,13 @@ const Cart = () => {
                   <div className="cart-items-title cart-items-item">
                     <img src={url + "/images/" + item.image} alt="" />
                     <p>{item.name}</p>
-                    <p>{item.price}₫</p>
+                    <p>{formatVND(item.price)} VNĐ</p>
                     <div className="quantity-changer">
                       <button className="btn" onClick={() => removeFromCart(item._id)}>−</button>
                       <p>{cartItems[item._id]}</p>
                       <button className="btn" onClick={() => addToCart(item._id)}>+</button>
                     </div>
-                    <p>{item.price * cartItems[item._id]}₫</p>
+                    <p>{formatVND(item.price * cartItems[item._id])} VNĐ</p>
                     <p onClick={() => removeAll(item._id)} className='cross'>x</p>
                   </div>
                   <hr />
@@ -56,17 +57,17 @@ const Cart = () => {
           <div>
             <div className="cart-total-details">
               <p>Tạm tính</p>
-              <p>{getTotalCartAmount()}₫</p>
+              <p>{formatVND(getTotalCartAmount())} VNĐ</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <p>Phí giao hàng</p>
-              <p>{getTotalCartAmount() === 0 ? 0 : 20000}₫</p>
+              <p>{formatVND(getTotalCartAmount() === 0 ? 0 : 20000)} VNĐ</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Tổng cộng</b>
-              <b>{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 20000}₫</b>
+              <b>{formatVND(getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 20000)} VNĐ</b>
             </div>
           </div>
           <button onClick={() => navigate('/order')}>TIẾN HÀNH THANH TOÁN</button>

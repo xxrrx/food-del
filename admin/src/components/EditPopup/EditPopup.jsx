@@ -129,7 +129,7 @@ const EditPopup = ({ setEdit, food, fetchList, url }) => {
               value={data.price}
               type='number'
               name='price'
-              placeholder='$20'
+              placeholder='20000'
               required
             />
           </div>

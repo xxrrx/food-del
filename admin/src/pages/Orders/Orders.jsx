@@ -3,6 +3,7 @@ import './Orders.css'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { assets } from '../../assets/assets'
+import { formatVND } from '../../utils/formatCurrency'
 
 const Orders = ({url}) => {
   const[orders,setOrders] = useState([])
@@ -54,7 +55,7 @@ const Orders = ({url}) => {
                 <p className='order-item-phone'>{order.address.phone}</p>
               </div>
               <p>Items : {order.items.length}</p>
-              <p>${order.amount}</p>
+              <p>{formatVND(order.amount)} VNĐ</p>
               <select onChange={(event)=>statusHandler(event,order._id)} value={order.status}>
                 <option  value="Food Processing">Food Processing</option>
                 <option value="Out for delivery">Out for delivery</option>
