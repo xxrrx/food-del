@@ -7,12 +7,8 @@ import { StoreContext } from '../../context/StoreContext'
 const navbar = ({setShowLogin}) => {
 
   const [menu,setMenu] = useState("home")
-  const {getTotalCartAmount,token,setToken,searchItems,setSearchItems} = useContext(StoreContext)
+  const {getTotalCartAmount,token,setToken} = useContext(StoreContext)
   const navigate = useNavigate();
-
-  const onChangeHandler = (event)=>{
-    setSearchItems(event.target.value);
-  }
 
   const logOut = ()=>{
     localStorage.removeItem("token")
@@ -25,27 +21,25 @@ const navbar = ({setShowLogin}) => {
       <div className='navbar'>
         <Link to='/'><img src={assets.logo} alt='logo' className='logo'></img></Link>
         <ul className='navbar-menu'>
-          <Link to='/' onClick={()=> setMenu("home")} className={menu==="home" ? "active":""}>home</Link>
-          <a href='#explore-menu' onClick={()=> setMenu("menu")} className={menu==="menu" ? "active":""}>menu</a>
-          <a href='#footer' onClick={()=> setMenu("contact-us")} className={menu==="contact-us" ? "active":""}>contact us</a>
+          <Link to='/' onClick={()=> setMenu("home")} className={menu==="home" ? "active":""}>Trang chủ</Link>
+          <a href='#explore-menu' onClick={()=> setMenu("menu")} className={menu==="menu" ? "active":""}>Menu</a>
+          <a href='#footer' onClick={()=> setMenu("contact-us")} className={menu==="contact-us" ? "active":""}>Liên hệ</a>
         </ul>
         <div className='navbar-right'>
-          <input value={searchItems} onChange={onChangeHandler} type="text" placeholder="Search" />
-          <img src={assets.search_icon} alt="" />
           <div className='navbar-search-icon'>
             <Link to='/cart'><img src={assets.basket_icon}></img></Link>
             <div className={getTotalCartAmount()===0?"":"dot"}></div>
           </div>
-          {!token?<button onClick={()=> setShowLogin(true)}>sign in</button>:
+          {!token?<button onClick={()=> setShowLogin(true)}>Đăng nhập</button>:
           <div className="navbar-profile">
             <img src={assets.profile_icon} alt="" />
             <ul className="navbar-profile-dropdown">
               <li onClick={()=>navigate("/myorders")}><img src={assets.bag_icon} alt="" />
-                <p>Orders</p>
+                <p>Đơn hàng</p>
               </li>
               <hr />
               <li onClick={logOut}><img src={assets.logout_icon} alt="" />
-                <p>LogOut</p>
+                <p>Đăng xuất</p>
               </li>
             </ul>
           </div>

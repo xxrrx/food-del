@@ -14,6 +14,7 @@ const Home = () => {
     <div>
       <Header/>
       <ExploreMenu category={category} setCategory={setCategory}/>
+      <hr />
       <FoodDisplay category={category} />
     </div>
     <AppDownload/>

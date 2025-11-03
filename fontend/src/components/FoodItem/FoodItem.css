@@ -67,11 +67,6 @@
     gap: 5px;
 }
 
-.food-item-price::before {
-    content: '$';
-    font-size: 18px;
-    font-weight: 600;
-}
 
 .food-item-img-container{
     position: relative;

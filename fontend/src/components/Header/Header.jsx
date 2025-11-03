@@ -11,15 +11,20 @@ const Header = () => {
     <div className='header'>
       <div className="header-contents">
         <div className="text-content">
-          <h2>Order your favourite food here</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore cupiditate odit animi beatae consectetur neque possimus cumque dolore minus iusto sequi autem dignissimos deleniti quae fugiat pariatur ad, eos incidunt?</p>
-          <button>View Menu</button>
+          <h2>Đặt món ăn yêu thích của bạn ngay hôm nay</h2>
+          <p>
+            Tại <strong>Pizzaholic</strong>, chúng tôi mang đến cho bạn những món pizza
+            thơm ngon, nóng hổi và đậm đà hương vị Ý. Từng chiếc pizza được làm thủ công
+            từ lớp đế giòn tan, phô mai béo ngậy cùng nguồn nguyên liệu tươi mới mỗi ngày —
+            sẵn sàng để chinh phục vị giác của bạn!
+          </p>
+          <button>Xem Thực Đơn</button>
         </div>
         <div className="spline-container">
-          <spline-viewer 
+          {/* <spline-viewer 
             ref={viewerRef}
             url="https://prod.spline.design/EaMqzE709AqwZCMP/scene.splinecode"
-          ></spline-viewer>
+          ></spline-viewer> */}
         </div>
       </div>
     </div>

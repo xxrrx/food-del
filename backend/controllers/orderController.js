@@ -3,7 +3,7 @@ import userModel from "../models/userModel.js";
 import { VnpLocale,ignoreLogger,ProductCode,dateFormat,VNPay } from "vnpay";
 
 const placeOrder = async(req,res)=>{
-    console.log("placeOrder req.body:", req.body); // <-- add this
+    console.log("placeOrder req.body:", req.body);
     const frontend_url = 'http://localhost:5173'
     try {
         const newOrder  = new orderModel({
@@ -25,12 +25,13 @@ const placeOrder = async(req,res)=>{
         })
         const session = await vnpay.buildPaymentUrl({
             vnp_TxnRef: newOrder._id.toString(),
-            vnp_OrderInfo: `Payment for order ${newOrder._id}`,
-            vnp_Amount: Number(newOrder.amount) * 100,
+            vnp_OrderInfo: `Thanh toán đơn hàng ${newOrder._id}`,
+            vnp_Amount: Math.round(Number(newOrder.amount)),
             vnp_ReturnUrl: `${frontend_url}/verify?orderId=${newOrder._id}`,
             vnp_CreateDate: dateFormat(new Date(), 'yyyyMMddHHmmss'),
             vnp_IpAddr: req.ip,
             vnp_Locale:VnpLocale.VN,
+            vnp_CurrCode: 'VND',
             vnp_ExpireDate: dateFormat(new Date(Date.now() + 15 * 60 * 1000), "yyyyMMddHHmmss"),
             vnp_ProductCode: ProductCode.FOOD,
         });
@@ -44,7 +45,6 @@ const placeOrder = async(req,res)=>{
         return res.json({ success: false, message: "Error" });
     }
 }
-
 const verifyOrder = async (req,res)=>{
     const{orderId,success} = req.body;
     try {

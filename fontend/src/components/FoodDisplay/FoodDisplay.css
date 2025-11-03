@@ -18,3 +18,39 @@
     gap: 35px;
     row-gap: 55px;
 }
+
+.food-display-top{
+    display: flex;
+    justify-content: space-between;
+}
+
+.food-display-top input{
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 2px solid var(--light-gray);
+    outline: none;
+    font-size: 14px;
+    min-width: 200px;
+    width: 400px;
+}
+
+.food-display-top input:focus {
+    border-color: var(--primary-red);
+}
+
+.food-display-top::placeholder {
+    color: var(--text-gray);
+}
+
+.search{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+@media (max-width:1050px) {
+    .food-display-top input{
+        width: 100px;
+    }
+}

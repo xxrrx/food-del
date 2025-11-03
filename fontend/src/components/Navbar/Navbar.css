@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 -60px;
 }
 
 .navbar-container {
@@ -16,9 +17,10 @@
 }
 
 .navbar .logo{
-    width: 160px;
+    width: 200px;
     filter: drop-shadow(2px 2px 4px var(--shadow-light));
     transition: transform 0.3s ease;
+    margin-left: 80px;
 }
 
 .navbar li{
@@ -40,26 +42,8 @@
 .navbar-right{
     display: flex;
     align-items: center;
-    gap: 25px;
-}
-
-.navbar-right input{
-    padding: 12px 20px;
-    border-radius: 25px;
-    border: 2px solid var(--light-gray);
-    outline: none;
-    transition: all 0.3s ease;
-    font-size: 14px;
-    min-width: 200px;
-}
-
-.navbar-right input:focus {
-    border-color: var(--primary-red);
-    box-shadow: 0 0 10px rgba(231, 76, 60, 0.2);
-}
-
-.navbar-right input::placeholder {
-    color: var(--text-gray);
+    gap: 50px;
+    padding-right: 90px;
 }
 
 .navbar button{
@@ -94,24 +78,14 @@
     font-weight: 600;
 }
 
-.navbar-search-icon{
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.navbar-search-icon:hover {
-    transform: scale(1.1);
-}
-
 .navbar-search-icon .dot{
     position: absolute;
     min-width: 12px;
     min-height: 12px;
     background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
     border-radius: 50%;
-    top: -8px;
-    right: -8px;
+    top: 20px;
+    right: 95px;
     animation: bounce 1s infinite;
     box-shadow: 0 2px 8px rgba(231, 76, 60, 0.5);
 }
@@ -183,7 +157,6 @@
     border: 2px solid var(--primary-red);
     box-shadow: 0 8px 25px var(--shadow-medium);
     list-style: none;
-    animation: slideInRight 0.3s ease;
 }
 
 .navbar-profile-dropdown li{
@@ -200,17 +173,12 @@
 .navbar-profile-dropdown li:hover{
     color: var(--primary-red);
     background: linear-gradient(135deg, #fff0ed, #ffe8e4);
-    transform: translateX(5px);
 }
 
 .navbar-profile-dropdown img{
     width: 22px;
-    transition: transform 0.3s ease;
 }
 
-.navbar-profile-dropdown li:hover img {
-    transform: scale(1.1);
-}
 @media (max-width:750px) {
     .navbar-menu{
         display: none;
