@@ -1,14 +1,12 @@
 export const categoryDisplay = {
-    "rice": "GẠO",
-    "drinks": "ĐỒ UỐNG",
-    "pizza": "PIZZA Ý",
-    "salad": "SALAD TƯƠI",
-    "pasta": "MÌ Ý",
-    "Drinking Food": "ĐỒ NHẬU",
-    "Rice Dishes": "CƠM",
-    "Beverages": "ĐỒ UỐNG",
+    "Pizza": "PIZZA",
+    "Chicken": "NGHIỀN GÀ",
+    "Dessert": "MÓN KHAI VỊ",
+    "Drink": "ĐỒ UỐNG",
+    "Rice Dishe": "CƠM NGON",
     "Fast Food": "ĐỒ ĂN NHANH",
     "Slow Food": "ĐỒ ĂN CHẬM",
+    "Drinking Food": "ĐỒ  NHẬU"
 };
 
 // Hàm tiện dụng

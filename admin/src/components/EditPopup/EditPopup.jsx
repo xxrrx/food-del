@@ -111,11 +111,14 @@ const EditPopup = ({ setEdit, food, fetchList, url }) => {
           <div>
             <p>Product category</p>
             <select onChange={onChangeHandler} name='category' value={data.category}>
-              <option value="Drinking Food">Drinking Food</option>
-              <option value="Rice Dishes">Rice Dishes</option>
-              <option value="Beverages">Beverages</option>
+              <option value="Pizza">Pizza</option>
+              <option value="Chicken">Chicken</option>
+              <option value="Dessert">Dessert</option>
+              <option value="Drink">Drink</option>
+              <option value="Rice Dishe">Rice Dishe</option>
               <option value="Fast Food">Fast Food</option>
               <option value="Slow Food">Slow Food</option>
+              <option value="Drinking Food">Drinking Food</option>
             </select>
           </div>
 
