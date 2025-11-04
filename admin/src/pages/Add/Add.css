@@ -1,0 +1,136 @@
+.add{
+    width: 70%;
+    margin-left: max(5vw, 30px);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: var(--text-gray);
+    font-size: 14px;
+    animation: fadeIn 0.8s ease;
+}
+
+.add form{
+    gap: 10px;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid var(--light-gray);
+}
+
+.add-image-upload {
+    margin-bottom: 5px;
+}
+
+.add-image-upload p {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.add-image-upload label {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-image-upload img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px dashed var(--light-gray);
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.add-image-upload img:hover {
+    border-color: var(--primary-orange);
+    box-shadow: 0 6px 20px var(--shadow-medium);
+}
+
+.add-product-name, .add-product-description{
+    width: max(50%, 350px);
+}
+
+.add-product-name p, .add-product-description p {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.add-product-name input, .add-product-description textarea{
+    padding: 10px 12px;
+    border: 2px solid var(--light-gray);
+    border-radius: 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    width: 100%;
+    font-family: inherit;
+}
+
+.add-product-name input:focus, .add-product-description textarea:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.2);
+}
+
+.add-product-description textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.add-category-price{
+    display: flex;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.add-category, .add-price {
+    flex: 1;
+    min-width: 180px;
+}
+
+.add-category p, .add-price p {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    font-size: 17px;
+}
+
+.add-category-price select, .add-category-price input{
+    max-width: 100%;
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid var(--light-gray);
+    border-radius: 12px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.add-category-price select:focus, .add-category-price input:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.2);
+}
+
+.add-button{
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+    padding: 14px 40px;
+    border: none;
+    color: white;
+    max-width: 180px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.add-button:hover {
+    background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 107, 53, 0.5);
+}

@@ -1,0 +1,112 @@
+.footer{
+    color: #e0e0e0;
+    background: linear-gradient(135deg, var(--dark-blue), #1a252f);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 25px 8vw;
+    padding-top: 90px;
+    margin-top: 120px;
+    position: relative;
+    box-shadow: 0 -10px 40px var(--shadow-medium);
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-red), var(--primary-orange), var(--secondary-yellow));
+}
+
+.footer-content{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 90px;
+}
+
+.footer-content-left , .footer-content-right , .footer-content-center{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 22px;
+}
+
+.footer-content-left p {
+    line-height: 1.7;
+    color: #c0c0c0;
+}
+
+.footer-content-left img {
+    filter: brightness(0) invert(1);
+}
+
+.footer-content-left li , .footer-content-right li , .footer-content-center li {
+    list-style: none;
+    margin-top: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #c0c0c0;
+}
+
+.footer-content-left li:hover , 
+.footer-content-right li:hover , 
+.footer-content-center li:hover {
+    color: var(--primary-orange);
+    transform: translateX(5px);
+}
+
+.footer-content-right h2 , .footer-content-center h2 {
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.footer-social-icons{
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+}
+
+.footer-social-icons img {
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    filter: brightness(0.9);
+}
+
+.footer-social-icons img:hover {
+    transform: translateY(-5px) scale(1.1);
+    filter: brightness(1.2);
+}
+
+.footer-content-left .logo-img{
+    width: 40%;
+}
+
+.footer hr{
+    width: 100%;
+    height: 2px;
+    margin: 25px 0;
+    background: linear-gradient(90deg, transparent, var(--primary-red), var(--primary-orange), transparent);
+    border: none;
+}
+
+@media (max-width:750px) {
+    .footer-content{
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+
+    }
+
+    .footer-copyright{
+        text-align: center;
+    }
+}
