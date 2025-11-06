@@ -10,7 +10,7 @@ const EditPopup = ({ setEdit, food, fetchList, url }) => {
     name:"",
     description:"",
     price:"",
-    category:"Salad",
+    category:"Drinking Food",
   })
 
   useEffect(() => {
@@ -111,14 +111,14 @@ const EditPopup = ({ setEdit, food, fetchList, url }) => {
           <div>
             <p>Product category</p>
             <select onChange={onChangeHandler} name='category' value={data.category}>
-              <option value='Salad'>Salad</option>
-              <option value='Rolls'>Rolls</option>
-              <option value='Deserts'>Deserts</option>
-              <option value='Sandwich'>Sandwich</option>
-              <option value='Cake'>Cake</option>
-              <option value='Pure Veg'>Pure Veg</option>
-              <option value='Pasta'>Pasta</option>
-              <option value='Noodles'>Noodles</option>
+              <option value="Pizza">Pizza</option>
+              <option value="Chicken">Chicken</option>
+              <option value="Dessert">Dessert</option>
+              <option value="Drink">Drink</option>
+              <option value="Rice Dishe">Rice Dishe</option>
+              <option value="Fast Food">Fast Food</option>
+              <option value="Slow Food">Slow Food</option>
+              <option value="Drinking Food">Drinking Food</option>
             </select>
           </div>
 

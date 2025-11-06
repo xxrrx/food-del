@@ -3,7 +3,7 @@ import './Header.css'
 
 const Header = () => {
   const viewerRef = useRef(null)
-  
+
   useEffect(() => {
   }, [])
 
@@ -18,7 +18,15 @@ const Header = () => {
             từ lớp đế giòn tan, phô mai béo ngậy cùng nguồn nguyên liệu tươi mới mỗi ngày —
             sẵn sàng để chinh phục vị giác của bạn!
           </p>
-          <button>Xem Thực Đơn</button>
+          <button
+            onClick={() => {
+              const target = document.getElementById("explore-menu");
+              if (target) target.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Xem Thực Đơn
+          </button>
+
         </div>
         <div className="spline-container">
           {/* <spline-viewer 

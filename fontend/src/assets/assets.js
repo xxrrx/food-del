@@ -1,11 +1,15 @@
 import basket_icon from './basket_icon.png'
 import logo from './logo.png'
-import header_img from './header_img.png'
+// import header_img from './header_img.png'
 import search_icon from './search_icon.png'
 import menu_1 from './menu_1.png'
 import menu_2 from './menu_2.png'
 import menu_3 from './menu_3.png'
 import menu_4 from './menu_4.png'
+import menu_5 from './menu_5.png'
+import menu_6 from './menu_6.png'
+import menu_7 from './menu_7.png'
+import menu_8 from './menu_8.png'
 
 import empty_cart from './empty-cart.png'
 import add_icon_white from './add_icon_white.png'
@@ -27,7 +31,7 @@ import parcel_icon from './parcel_icon.png'
 export const assets = {
     logo,
     basket_icon,
-    header_img,
+    // header_img,
     search_icon,
     rating_starts,
     add_icon_green,
@@ -49,19 +53,35 @@ export const assets = {
 
 export const menu_list = [
     {
-        menu_name: "PIZZA",
+        menu_name: "Pizza",
         menu_image: menu_1
     },
     {
-        menu_name: "NGHIỀN GÀ",
+        menu_name: "Chicken",
         menu_image: menu_2
     },
     {
-        menu_name: "MÓN KHAI VỊ",
+        menu_name: "Dessert",
         menu_image: menu_3
     },
     {
-        menu_name: "THỨC UỐNG",
+        menu_name: "Drink",
         menu_image: menu_4
+    },
+    {
+        menu_name: "Rice Dishe",
+        menu_image: menu_5
+    },
+    {
+        menu_name: "Fast Food",
+        menu_image: menu_6
+    },
+    {
+        menu_name: "Slow Food",
+        menu_image: menu_7
+    },
+    {
+        menu_name: "Drinking Food",
+        menu_image: menu_8
     },
 ]

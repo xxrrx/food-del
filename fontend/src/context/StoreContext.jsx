@@ -5,71 +5,73 @@ export const StoreContext = createContext(null)
 const StoreContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
-    const url ="http://localhost:4000"
-    const [token,setToken] = useState("")
-    const [food_list,setFoodList] = useState([])
-    const [searchItems,setSearchItems] = useState("");
+    const url = "http://localhost:4000"
+    const [token, setToken] = useState("")
+    const [food_list, setFoodList] = useState([])
+    const [searchItems, setSearchItems] = useState("");
 
-    const addToCart= async (itemId)=>{
-        if(!cartItems[itemId]){
-            setCartItems((prev)=>({...prev,[itemId]:1}))
+    const addToCart = async (itemId) => {
+        if (!cartItems[itemId]) {
+            setCartItems((prev) => ({ ...prev, [itemId]: 1 }))
         }
-        else{
-            setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
+        else {
+            setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
         }
         if (token) {
-            await axios.post(url+"/api/cart/add",{itemId},{headers:{token}})
+            await axios.post(url + "/api/cart/add", { itemId }, { headers: { token } })
         }
     }
-    const removeFromCart = async (itemId)=>{
-        setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
+    const removeFromCart = async (itemId) => {
+        setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
         if (token) {
-            await axios.post(url+"/api/cart/remove",{itemId},{headers:{token}})
+            await axios.post(url + "/api/cart/remove", { itemId }, { headers: { token } })
         }
     }
-    const removeAll = async (itemId)=>{
-        setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-prev[itemId]}))
-        if(token){
-            await axios.post(url+"/api/cart/removeAll",{itemId},{headers:{token}})
+    const removeAll = async (itemId) => {
+        setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - prev[itemId] }))
+        if (token) {
+            await axios.post(url + "/api/cart/removeAll", { itemId }, { headers: { token } })
         }
     }
 
     const loadCartData = async (token) => {
         if (token) {
+            // const response = await axios.get(url + "/api/cart/get", {}, { headers: { token } });
             const response = await axios.get(url + "/api/cart/get",  { headers: { token } });
-            setCartItems(response.data.cartData || {});
+
+            setCartItems(response.data.cartData);
         }
     }
 
-    const getTotalCartAmount = () =>{
+    const getTotalCartAmount = () => {
         let totalAmount = 0;
-        for(const item in cartItems){
-            if(cartItems[item]>0){
-                let itemInfo = food_list.find((product)=> product._id === item);
+        for (const item in cartItems) {
+            if (cartItems[item] > 0) {
+                let itemInfo = food_list.find((product) => product._id === item);
                 totalAmount += itemInfo.price * cartItems[item];
             }
         }
         return totalAmount;
     }
 
-    const fetchFoodList = async ()=>{
-        const response = await axios.get(url+"/api/food/list");
+    const fetchFoodList = async () => {
+        const response = await axios.get(url + "/api/food/list");
         setFoodList(response.data.data)
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         async function loadData() {
             await fetchFoodList();
-            if(localStorage.getItem("token")){
+            if (localStorage.getItem("token")) {
                 setToken(localStorage.getItem("token"))
                 await loadCartData(localStorage.getItem("token"));
             }
         }
         loadData();
-    },[])
+    }, [])
 
 
-    const contextValue={
+    const contextValue = {
         food_list,
         cartItems,
         setCartItems,
@@ -83,7 +85,7 @@ const StoreContextProvider = (props) => {
         searchItems,
         setSearchItems
     }
-    return(
+    return (
         <StoreContext.Provider value={contextValue}>
             {props.children}
         </StoreContext.Provider>
