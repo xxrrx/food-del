@@ -29,10 +29,10 @@ const Header = () => {
 
         </div>
         <div className="spline-container">
-          <spline-viewer 
+          {/* <spline-viewer 
             ref={viewerRef}
             url="https://prod.spline.design/EaMqzE709AqwZCMP/scene.splinecode"
-          ></spline-viewer>
+          ></spline-viewer> */}
         </div>
       </div>
     </div>
