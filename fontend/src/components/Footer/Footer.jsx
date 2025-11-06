@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="footer-content">
             <div className="footer-content-left">
                 <img className='logo-img' src={assets.logo} alt="" />
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil beatae quaerat nisi ab ad necessitatibus quis iusto magnam ut cumque placeat deleniti consequatur, alias hic cum sint, voluptate inventore possimus!</p>
+                <p>Pizzaholic - Nơi mang đến những trải nghiệm ẩm thực tuyệt vời với pizza thơm ngon, nóng hổi được làm từ nguyên liệu tươi mới mỗi ngày. Chúng tôi cam kết phục vụ bạn với chất lượng tốt nhất và dịch vụ tận tâm.</p>
                 <div className="footer-social-icons">
                     <img src={assets.facebook_icon} alt="" />
                     <img src={assets.twitter_icon} alt="" />
@@ -16,16 +16,16 @@ const Footer = () => {
                 </div>
             </div>
             <div className="footer-content-center">
-                <h2>COMPANY</h2>
+                <h2>CÔNG TY</h2>
                 <ul>
-                    <li>Home</li>
-                    <li>About us</li>
-                    <li>Delivery</li>
-                    <li>Privacy Policy</li>
+                    <li>Trang chủ</li>
+                    <li>Về chúng tôi</li>
+                    <li>Giao hàng</li>
+                    <li>Chính sách bảo mật</li>
                 </ul>
             </div>
             <div className="footer-content-right">
-                <h2>GET IN TOUCH</h2>
+                <h2>LIÊN HỆ</h2>
                 <ul>
                     <li>+84-961-056-048</li>
                     <li>contact@Pizzaholic.com</li>
@@ -33,7 +33,7 @@ const Footer = () => {
             </div>
         </div>
         <hr />
-        <p className='footer-copyright'>Copyright 2025 © Pizzaholic.com - All Right Reserved.</p>
+        <p className='footer-copyright'>Bản quyền 2025 © Pizzaholic.com - Đã đăng ký bản quyền.</p>
     </div>
     )
 }

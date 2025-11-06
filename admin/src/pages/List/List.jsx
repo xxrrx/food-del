@@ -22,7 +22,7 @@ const List = ({url}) => {
       setList(response.data.data);
     }
     else{
-      toast.error("Error")
+      toast.error("Lỗi khi tải danh sách")
     }
   }
 
@@ -30,10 +30,10 @@ const List = ({url}) => {
     const response = await axios.post(`${url}/api/food/remove`,{id:foodId})
     await fetchList();
     if (response.data.success) {
-      toast.success(response.data.message)
+      toast.success("Đã xóa sản phẩm")
     }
     else{
-      toast.error("Error")
+      toast.error("Lỗi khi xóa")
     }
   }
 
@@ -45,17 +45,17 @@ const List = ({url}) => {
     {edit ? <EditPopup setEdit={setEdit} food={edit} fetchList={fetchList} url={url} /> : null}
     <div className='list add flex-col'>
       <div className="search-item">
-        <input value={searchValue} onChange={handleInput} type="text" placeholder='Search'/>
+        <input value={searchValue} onChange={handleInput} type="text" placeholder='Tìm kiếm sản phẩm...'/>
         <img src={assets.search_icon} alt="Search" />
       </div>
       <div className="list-table">
         <div className="list-table-format title">
-          <b>Image</b>
-          <b>Name</b>
-          <b>Category</b>
-          <b>Price</b>
-          <b>Remove</b>
-          <b>Action</b>
+          <b>Hình ảnh</b>
+          <b>Tên sản phẩm</b>
+          <b>Danh mục</b>
+          <b>Giá</b>
+          <b>Xóa</b>
+          <b>Sửa</b>
         </div>
         {list.map((item,index)=>{
           if(item.name.toLowerCase().includes(searchValue.trim().toLowerCase())){
@@ -66,7 +66,7 @@ const List = ({url}) => {
                 <p>{item.category}</p>
                 <p>{formatVND(item.price)} VNĐ</p>
                 <p onClick={()=>removeFood(item._id)} className='cursor'>x</p>
-                <p className='edit-btn' onClick={() => {setEdit(item)}}>Edit</p>
+                <p className='edit-btn' onClick={() => {setEdit(item)}}>Sửa</p>
               </div>
             )
           }

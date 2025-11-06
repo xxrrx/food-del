@@ -7,17 +7,21 @@ const Sidebar = () => {
     return(
         <div className='sidebar'>
             <div className="sidebar-options">
+                <NavLink to='/' className="sidebar-option">
+                    <img src={assets.order_icon} alt="" />
+                    <p>Tổng quan</p>
+                </NavLink>
                 <NavLink to='/add' className="sidebar-option">
                     <img src={assets.add_icon} alt="" />
-                    <p>Add Items</p>
+                    <p>Thêm sản phẩm</p>
                 </NavLink>
                 <NavLink to='/list' className="sidebar-option">
                     <img src={assets.order_icon} alt="" />
-                    <p>List Items</p>
+                    <p>Danh sách sản phẩm</p>
                 </NavLink>
                 <NavLink to='/orders' className="sidebar-option">
                     <img src={assets.order_icon} alt="" />
-                    <p>Orders</p>
+                    <p>Đơn hàng</p>
                 </NavLink>
             </div>
         </div>

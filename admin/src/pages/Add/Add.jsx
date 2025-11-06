@@ -10,7 +10,7 @@ const Add = ({ url }) => {
     name: "",
     description: "",
     price: "",
-    category: "Drinking Food",
+    category: "Pizza",
   })
 
   const onChangeHandler = (event) => {
@@ -20,7 +20,6 @@ const Add = ({ url }) => {
   }
 
   const onSumbitHandler = async (event) => {
-    event.preventDefault();
     const formData = new FormData();
     formData.append("name", data.name)
     formData.append("description", data.description)
@@ -33,13 +32,13 @@ const Add = ({ url }) => {
         name: "",
         description: "",
         price: "",
-        category: "Salad",
+        category: "Pizza",
       })
       setImage(false)
-      toast.success(response.data.message)
+      toast.success("Đã thêm sản phẩm thành công")
     }
     else {
-      toast.error(response.data.message)
+      toast.error("Lỗi khi thêm sản phẩm")
     }
   }
 
@@ -47,40 +46,40 @@ const Add = ({ url }) => {
     <div className='add'>
       <form className='flex-col' onSubmit={onSumbitHandler}>
         <div className="add-image-upload flex-col">
-          <p>Upload Image</p>
+          <p>Tải hình ảnh lên</p>
           <label htmlFor="image">
             <img src={image ? URL.createObjectURL(image) : assets.upload_area} alt="" />
           </label>
           <input onChange={(e) => setImage(e.target.files[0])} type="file" id="image" hidden required />
         </div>
         <div className="add-product-name flex-col">
-          <p>Product Name</p>
-          <input onChange={onChangeHandler} value={data.name} type="text" name="name" placeholder='Type here' />
+          <p>Tên sản phẩm</p>
+          <input onChange={onChangeHandler} value={data.name} type="text" name="name" placeholder='Nhập tên sản phẩm' />
         </div>
         <div className="add-product-description flex-col">
-          <p>Product description</p>
-          <textarea onChange={onChangeHandler} value={data.description} name="description" rows="6" placeholder='Write content here'></textarea>
+          <p>Mô tả sản phẩm</p>
+          <textarea onChange={onChangeHandler} value={data.description} name="description" rows="6" placeholder='Nhập mô tả sản phẩm'></textarea>
         </div>
         <div className="add-category-price">
           <div className="add-category flex-col">
-            <p>Product category</p>
+            <p>Danh mục sản phẩm</p>
             <select onChange={onChangeHandler} name="category">
               <option value="Pizza">Pizza</option>
-              <option value="Chicken">Chicken</option>
-              <option value="Dessert">Dessert</option>
-              <option value="Drink">Drink</option>
-              <option value="Rice Dishe">Rice Dishe</option>
-              <option value="Fast Food">Fast Food</option>
-              <option value="Slow Food">Slow Food</option>
-              <option value="Drinking Food">Drinking Food</option>
+              <option value="Chicken">Gà</option>
+              <option value="Dessert">Tráng miệng</option>
+              <option value="Drink">Đồ uống</option>
+              <option value="Rice Dishe">Cơm</option>
+              <option value="Fast Food">Đồ ăn nhanh</option>
+              <option value="Slow Food">Đồ ăn chậm</option>
+              <option value="Drinking Food">Đồ ăn nhậu</option>
             </select>
           </div>
           <div className="add-price flex-col">
-            <p>Product price</p>
+            <p>Giá sản phẩm</p>
             <input onChange={onChangeHandler} value={data.price} type="number" name='price' placeholder='100.000 VNĐ' />
           </div>
         </div>
-        <button type='submit' className='add-button'>ADD</button>
+        <button type='submit' className='add-button'>THÊM SẢN PHẨM</button>
       </form>
     </div>
   )

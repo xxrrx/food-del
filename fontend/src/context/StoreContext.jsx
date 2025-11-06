@@ -39,7 +39,7 @@ const StoreContextProvider = (props) => {
             // const response = await axios.get(url + "/api/cart/get", {}, { headers: { token } });
             const response = await axios.get(url + "/api/cart/get",  { headers: { token } });
 
-            setCartItems(response.data.cartData);
+            setCartItems(response.data.cartData || {});
         }
     }
 

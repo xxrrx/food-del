@@ -10,6 +10,15 @@ const MyOrders = () => {
   const { url, token } = useContext(StoreContext);
   const [data, setData] = useState([]);
 
+  const getStatusText = (status) => {
+    const statusMap = {
+      "Food Processing": "Đang xử lý",
+      "Out for delivery": "Đang giao hàng",
+      "Delivered": "Đã giao hàng"
+    }
+    return statusMap[status] || status;
+  }
+
   const fetchOrders = async () => {
     const response = await axios.post(url + "/api/order/userorders", {}, { headers: { token } });
     setData(response.data.data);
@@ -44,7 +53,7 @@ const MyOrders = () => {
                   </p>
                   <p>Tổng tiền: {formatVND(order.amount)} VNĐ</p>
                   <p>Số lượng món: {order.items.length}</p>
-                  <p><span>&#x25cf;</span><b> Trạng thái: {order.status}</b></p>
+                  <p><span>&#x25cf;</span><b> Trạng thái: {getStatusText(order.status)}</b></p>
                   <button onClick={fetchOrders}>Theo dõi đơn hàng</button>
                 </div>
               )

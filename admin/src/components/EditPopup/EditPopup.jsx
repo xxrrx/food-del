@@ -10,7 +10,7 @@ const EditPopup = ({ setEdit, food, fetchList, url }) => {
     name:"",
     description:"",
     price:"",
-    category:"Drinking Food",
+    category:"Pizza",
   })
 
   useEffect(() => {
@@ -47,15 +47,15 @@ const EditPopup = ({ setEdit, food, fetchList, url }) => {
       }
       const response = await axios.post(`${url}/api/food/update`, formData)
       if (response.data.success) {
-        toast.success(response.data.message || 'Updated')
+        toast.success('Đã cập nhật sản phẩm thành công')
         setEdit(null)
         if (typeof fetchList === 'function') await fetchList()
       } else {
-        toast.error(response.data.message || 'Update failed')
+        toast.error('Cập nhật thất bại')
       }
     } catch (err) {
       console.error(err)
-      toast.error('Error while updating')
+      toast.error('Lỗi khi cập nhật')
     }
   }
 
@@ -67,7 +67,7 @@ const EditPopup = ({ setEdit, food, fetchList, url }) => {
     <div className='edit-popup' onClick={overlayClick}>
       <form className='edit-popup-containter' onSubmit={onSubmitHandler}>
         <div>
-          <p>Upload Image</p>
+          <p>Tải hình ảnh lên</p>
           <label htmlFor='image'>
             <img
               src={
@@ -84,46 +84,46 @@ const EditPopup = ({ setEdit, food, fetchList, url }) => {
         </div>
 
         <div>
-          <p>Product Name</p>
+          <p>Tên sản phẩm</p>
           <input
             onChange={onChangeHandler}
             value={data.name}
             type='text'
             name='name'
-            placeholder='Type here'
+            placeholder='Nhập tên sản phẩm'
             required
           />
         </div>
 
         <div>
-          <p>Product description</p>
+          <p>Mô tả sản phẩm</p>
           <textarea
             onChange={onChangeHandler}
             value={data.description}
             name='description'
             rows='6'
-            placeholder='Write content here'
+            placeholder='Nhập mô tả sản phẩm'
             required
           ></textarea>
         </div>
 
         <div>
           <div>
-            <p>Product category</p>
+            <p>Danh mục sản phẩm</p>
             <select onChange={onChangeHandler} name='category' value={data.category}>
               <option value="Pizza">Pizza</option>
-              <option value="Chicken">Chicken</option>
-              <option value="Dessert">Dessert</option>
-              <option value="Drink">Drink</option>
-              <option value="Rice Dishe">Rice Dishe</option>
-              <option value="Fast Food">Fast Food</option>
-              <option value="Slow Food">Slow Food</option>
-              <option value="Drinking Food">Drinking Food</option>
+              <option value="Chicken">Gà</option>
+              <option value="Dessert">Tráng miệng</option>
+              <option value="Drink">Đồ uống</option>
+              <option value="Rice Dishe">Cơm</option>
+              <option value="Fast Food">Đồ ăn nhanh</option>
+              <option value="Slow Food">Đồ ăn chậm</option>
+              <option value="Drinking Food">Đồ ăn nhậu</option>
             </select>
           </div>
 
           <div>
-            <p>Product price</p>
+            <p>Giá sản phẩm</p>
             <input
               onChange={onChangeHandler}
               value={data.price}
@@ -136,7 +136,7 @@ const EditPopup = ({ setEdit, food, fetchList, url }) => {
         </div>
 
         <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
-          <button type='submit'>Submit</button>
+          <button type='submit'>Cập nhật</button>
         </div>
       </form>
     </div>

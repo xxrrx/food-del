@@ -8,60 +8,85 @@
     background: white;
     overflow: hidden;
     border: 2px solid transparent;
+    display: flex;
+    flex-direction: row;
+    height: 250px;
 }
 
 .food-item:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: 0 12px 35px var(--shadow-medium);
     border-color: var(--primary-red);
 }
 
 .food-item-image{
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 20px 20px 0 0;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 0;
     transition: all 0.4s ease;
 }
 
 .food-item:hover .food-item-image {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .food-item-info{
-    padding: 22px;
+    padding: 28px 18px 28px 5px;
     background: white;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .food-item-name-rating{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 12px;
+    gap: 10px;
 }
 
 .food-item-name-rating p{
-    font-size: 19px;
+    font-size: 22px;
     font-weight: 600;
     color: var(--text-dark);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+    min-height: 57px;
+    max-height: 57px;
+    flex: 1;
 }
 
 .food-item-name-rating img{
-    width: 75px;
+    width: 85px;
+    flex-shrink: 0;
 }
 
 .food-item-description{
-    font-size: 13px;
+    font-size: 15px;
     color: var(--text-gray);
     line-height: 1.5;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 67px;
+    max-height: 67px;
 }
 
 .food-item-price{
     color: var(--primary-red);
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 700;
-    margin: 12px 0px;
+    margin-top: auto;
+    padding-top: 12px;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -71,6 +96,9 @@
 .food-item-img-container{
     position: relative;
     overflow: hidden;
+    width: 350px;
+    min-width: 350px;
+    height: 100%;
 }
 
 .food-item-img-container .add{
@@ -114,4 +142,21 @@
     font-size: 16px;
     min-width: 20px;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .food-item{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .food-item-img-container{
+        width: 100%;
+        min-width: 100%;
+        height: 200px;
+    }
+
+    .food-item-image{
+        border-radius: 20px 20px 0 0;
+    }
 }

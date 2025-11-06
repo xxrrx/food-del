@@ -13,6 +13,15 @@ const Success = () => {
   const [orderData, setOrderData] = useState(null)
   const orderId = location.state?.orderId
 
+  const getStatusText = (status) => {
+    const statusMap = {
+      "Food Processing": "Đang xử lý",
+      "Out for delivery": "Đang giao hàng",
+      "Delivered": "Đã giao hàng"
+    }
+    return statusMap[status] || status;
+  }
+
   useEffect(() => {
     if (!orderId) {
       navigate('/')
@@ -69,7 +78,7 @@ const Success = () => {
             </div>
             <div className="info-row">
               <span className="label">Trạng thái:</span>
-              <span className="value status">{orderData.status}</span>
+              <span className="value status">{getStatusText(orderData.status)}</span>
             </div>
           </div>
 
