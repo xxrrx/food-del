@@ -6,7 +6,7 @@ import { formatVND } from '../../utils/formatCurrency'
 import { useNavigate } from 'react-router-dom'
 
 const FoodItem = ({id, name, price, description, image}) => {
-  const { cartItems = {}, addToCart, removeFromCart, url, ratings } = useContext(StoreContext)
+  const { cartItems = {}, addToCart, removeFromCart, ratings, getImageUrl } = useContext(StoreContext)
   const navigate = useNavigate()
   const avg = ratings[id]
 
@@ -15,7 +15,7 @@ const FoodItem = ({id, name, price, description, image}) => {
       <div className="food-item-img-container">
         <img
           className='food-item-image'
-          src={url + "/images/" + image}
+          src={getImageUrl(image)}
           onClick={() => navigate(`/food/${id}`)}
           style={{cursor: 'pointer'}}
         />

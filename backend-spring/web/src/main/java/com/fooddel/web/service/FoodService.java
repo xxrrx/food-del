@@ -6,13 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -24,24 +23,38 @@ public class FoodService {
     @Autowired
     private FoodRepository foodRepository;
 
-    @Value("${upload.dir}")
-    private String uploadDir;
+    @Autowired
+    private S3Client s3Client;
+
+    @Value("${aws.s3.bucket}")
+    private String bucketName;
+
+    @Value("${aws.s3.region}")
+    private String region;
 
     private String saveFile(MultipartFile file) throws IOException {
-        Path uploadPath = Paths.get(uploadDir).toAbsolutePath();
-        Files.createDirectories(uploadPath);
         String filename = UUID.randomUUID() + "_" + file.getOriginalFilename();
-        try (InputStream in = file.getInputStream()) {
-            Files.copy(in, uploadPath.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
-        }
-        return filename;
+        String key = "uploads/" + filename;
+        s3Client.putObject(
+                PutObjectRequest.builder()
+                        .bucket(bucketName)
+                        .key(key)
+                        .contentType(file.getContentType())
+                        .build(),
+                RequestBody.fromInputStream(file.getInputStream(), file.getSize())
+        );
+        return "https://" + bucketName + ".s3." + region + ".amazonaws.com/" + key;
     }
 
-    private void deleteFile(String filename) {
+    private void deleteFile(String imageUrl) {
         try {
-            Path uploadPath = Paths.get(uploadDir).toAbsolutePath();
-            Files.deleteIfExists(uploadPath.resolve(filename));
-        } catch (IOException ignored) {}
+            // Extract S3 key from full URL
+            String key = imageUrl.substring(imageUrl.indexOf("uploads/"));
+            s3Client.deleteObject(DeleteObjectRequest.builder()
+                    .bucket(bucketName)
+                    .key(key)
+                    .build());
+        } catch (Exception ignored) {}
     }
 
     public Map<String, Object> addFood(String name, String description, double price, String category, MultipartFile image) {

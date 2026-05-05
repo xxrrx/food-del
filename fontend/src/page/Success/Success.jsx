@@ -9,7 +9,7 @@ import { formatVND } from '../../utils/formatCurrency'
 const Success = () => {
   const location = useLocation()
   const navigate = useNavigate()
-  const { url, token } = useContext(StoreContext)
+  const { url, token, getImageUrl } = useContext(StoreContext)
   const [orderData, setOrderData] = useState(null)
   const orderId = location.state?.orderId
 
@@ -86,7 +86,7 @@ const Success = () => {
           <div className="order-items">
             {orderData.items.map((item, index) => (
               <div key={index} className="order-item">
-                <img src={url + "/images/" + item.image} alt={item.name} />
+                <img src={getImageUrl(item.image)} alt={item.name} />
                 <div className="item-info">
                   <p className="item-name">{item.name}</p>
                   <p className="item-quantity">Số lượng: {item.quantity}</p>

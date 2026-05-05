@@ -5,7 +5,7 @@ export const StoreContext = createContext(null)
 const StoreContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
-    const url = "http://localhost:8080"
+    const url = import.meta.env.VITE_API_URL
     const [token, setToken] = useState("")
     const [food_list, setFoodList] = useState([])
     const [searchItems, setSearchItems] = useState("");
@@ -78,6 +78,13 @@ const StoreContextProvider = (props) => {
     }, [])
 
 
+    // Xử lý cả ảnh cũ (filename) và ảnh mới (full S3 URL)
+    const getImageUrl = (image) => {
+        if (!image) return ""
+        if (image.startsWith("http")) return image
+        return url + "/images/" + image
+    }
+
     const contextValue = {
         food_list,
         cartItems,
@@ -92,7 +99,8 @@ const StoreContextProvider = (props) => {
         searchItems,
         setSearchItems,
         ratings,
-        fetchRatings
+        fetchRatings,
+        getImageUrl
     }
     return (
         <StoreContext.Provider value={contextValue}>

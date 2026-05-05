@@ -4,7 +4,7 @@ import StarRating from '../StarRating/StarRating'
 import { StoreContext } from '../../context/StoreContext'
 
 const ReviewCard = ({ review, onDelete }) => {
-  const { url, token } = useContext(StoreContext)
+  const { url, token, getImageUrl } = useContext(StoreContext)
   const [lightbox, setLightbox] = useState(null)
 
   const formatDate = (date) => {
@@ -41,9 +41,9 @@ const ReviewCard = ({ review, onDelete }) => {
         <div className="review-media">
           {review.mediaFiles.map((file, i) => (
             isVideo(file)
-              ? <video key={i} src={url + "/images/" + file} controls className="review-media-item" />
-              : <img key={i} src={url + "/images/" + file} alt="review" className="review-media-item"
-                  onClick={() => setLightbox(url + "/images/" + file)} />
+              ? <video key={i} src={getImageUrl(file)} controls className="review-media-item" />
+              : <img key={i} src={getImageUrl(file)} alt="review" className="review-media-item"
+                  onClick={() => setLightbox(getImageUrl(file))} />
           ))}
         </div>
       )}

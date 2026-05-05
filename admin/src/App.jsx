@@ -11,7 +11,7 @@ import Home from './pages/Home/Home'
 
 const App = () => {
 
-  const url ="http://localhost:8080"
+  const url = import.meta.env.VITE_API_URL
 
   return (
     <div>

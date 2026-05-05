@@ -9,7 +9,7 @@ import { formatVND } from '../../utils/formatCurrency'
 
 const FoodDetail = () => {
   const { id } = useParams()
-  const { url, token, food_list, cartItems, addToCart, removeFromCart } = useContext(StoreContext)
+  const { url, token, food_list, cartItems, addToCart, removeFromCart, getImageUrl } = useContext(StoreContext)
   const navigate = useNavigate()
 
   const food = food_list.find(f => f._id === id)
@@ -97,7 +97,7 @@ const FoodDetail = () => {
     <div className="food-detail">
       {/* Product Info */}
       <div className="food-detail-top">
-        <img src={`${url}/images/${food.image}`} alt={food.name} className="food-detail-img" />
+        <img src={getImageUrl(food.image)} alt={food.name} className="food-detail-img" />
         <div className="food-detail-info">
           <p className="food-detail-category">{food.category}</p>
           <h1 className="food-detail-name">{food.name}</h1>

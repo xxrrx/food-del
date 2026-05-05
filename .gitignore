@@ -1,0 +1,11 @@
+# Terraform
+infrastructure/.terraform/
+infrastructure/terraform.tfstate
+infrastructure/terraform.tfstate.backup
+infrastructure/terraform.tfvars
+infrastructure/.terraform.lock.hcl
+
+# Env files
+.env
+.env.local
+.env.production

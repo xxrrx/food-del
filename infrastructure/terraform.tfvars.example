@@ -1,0 +1,2 @@
+mongo_uri  = "mongodb+srv://Thuan:PASSWORD@cluster0.ka590mv.mongodb.net/food-delivery?appName=Cluster0"
+jwt_secret = "my_super_secret_key_for_jwt_signing_2024"

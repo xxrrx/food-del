@@ -7,7 +7,7 @@ import { formatVND } from '../../utils/formatCurrency';
 
 const Cart = () => {
 
-  const { cartItems, removeFromCart, food_list, removeAll, addToCart, getTotalCartAmount, url } = useContext(StoreContext);
+  const { cartItems, removeFromCart, food_list, removeAll, addToCart, getTotalCartAmount, getImageUrl } = useContext(StoreContext);
   const navigate = useNavigate();
 
   return (
@@ -33,7 +33,7 @@ const Cart = () => {
               return (
                 <div key={index}>
                   <div className="cart-items-title cart-items-item">
-                    <img src={url + "/images/" + item.image} alt="" />
+                    <img src={getImageUrl(item.image)} alt="" />
                     <p>{item.name}</p>
                     <p>{formatVND(item.price)} VNĐ</p>
                     <div className="quantity-changer">
