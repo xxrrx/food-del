@@ -19,7 +19,7 @@ const navbar = ({ setShowLogin }) => {
   return (
     <div className='navbar-container'>
       <div className='navbar'>
-        <Link to='/' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}><img src={assets.logo} alt='logo' className='logo'></img></Link>
+        <Link to='/' onClick={() => { setMenu("home"); window.scrollTo({ top: 0, behavior: 'smooth' })}}><img src={assets.logo} alt='logo' className='logo'></img></Link>
         <ul className='navbar-menu'>
           <Link to='/' onClick={()=> {setMenu("home"); window.scrollTo({ top: 0, behavior: "smooth" });}}  className={menu==="home" ? "active":""}>Trang chủ</Link>
           <a href='#explore-menu' onClick={() => setMenu("menu")} className={menu === "menu" ? "active" : ""}>Menu</a>
