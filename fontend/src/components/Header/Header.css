@@ -1,6 +1,6 @@
 .header{
     height: 38vw;
-    margin: 35px auto;
+    margin: 20px auto;
     background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
     position: relative;
     border-radius: 25px;
@@ -9,14 +9,18 @@
 }
 
 .header-contents{
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 4vw;
-    height: 100%;
     padding: 0 6vw;
     z-index: 2;
+    overflow: hidden;
 }
 
 .text-content {
@@ -73,11 +77,12 @@
 
 .spline-container {
     width: 100%;
-    height: 100%;
+    height: 38vw;
     display: flex;
     align-items: center;
     justify-content: center;
     animation: fadeInRight 1.5s ease;
+    overflow: hidden;
 }
 
 .spline-container spline-viewer {

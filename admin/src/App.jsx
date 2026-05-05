@@ -11,7 +11,7 @@ import Home from './pages/Home/Home'
 
 const App = () => {
 
-  const url ="http://localhost:4000"
+  const url ="http://localhost:8080"
 
   return (
     <div>

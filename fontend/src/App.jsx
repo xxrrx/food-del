@@ -10,6 +10,7 @@ import Verify from './page/Verify/Verify.jsx'
 import MyOrders from './page/MyOrders/MyOrders.jsx'
 import Success from './page/Success/Success.jsx'
 import False from './page/False/False.jsx'
+import FoodDetail from './page/FoodDetail/FoodDetail.jsx'
 
 const App = () => {
 
@@ -17,9 +18,9 @@ const App = () => {
 
   return (
     <>
-    {showLogin ? <LoginPopup setShowLogin={setShowLogin}/> : <></>} 
+    {showLogin ? <LoginPopup setShowLogin={setShowLogin}/> : <></>}
+    <Navbar setShowLogin={setShowLogin}/>
     <div className='app'>
-      <Navbar setShowLogin={setShowLogin}/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/cart' element={<Cart/>}/>
@@ -28,6 +29,7 @@ const App = () => {
         <Route path='/myorders' element={<MyOrders/>}/>
         <Route path='/success' element={<Success/>}/>
         <Route path='/false' element={<False/>}/>
+        <Route path='/food/:id' element={<FoodDetail/>}/>
       </Routes>
     </div>
     <Footer/>
